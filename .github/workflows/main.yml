@@ -1,8 +1,23 @@
-name: Hello World Workflow
-on: [push]
+name: Simple Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  say-hello:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "hello world"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo "Hello, GitHub Actions!"
+
+      - name: Run a multi-line script
+        run: |
+          echo "Add other actions to build,"
+          echo "test, and deploy your project."
