@@ -1,11 +1,8 @@
-name: Push Trigger
-on:
-  push:
-    branches: [main]
+name: Hello World Workflow
+on: [push]
 
 jobs:
-  run-task:
+  say-hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "Triggered by push to main!"
+      - run: echo "hello world"
