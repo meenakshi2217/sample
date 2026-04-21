@@ -1,9 +1,11 @@
-name: Simple Workflow
-on: [push, pull_request]
+name: Push Trigger
+on:
+  push:
+    branches: [main]
 
 jobs:
-  build:
+  run-task:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Hello, GitHub Actions!"
+      - run: echo "Triggered by push to main!"
